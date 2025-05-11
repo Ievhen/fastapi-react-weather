@@ -30,6 +30,12 @@ source .venv/bin/activate
 uvicorn src.main:app --reload
 ```
 
+#### Frontend
+```bash
+cd frontend
+npm run dev
+```
+
 ### 2. Running with Docker 🐳
 
 #### Backend
