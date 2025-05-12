@@ -8,7 +8,7 @@ function App() {
   const [selectedCountry, setSelectedCountry] = useState(null)
 
   const fetchCountries = () => {
-    axios.get('http://127.0.0.1:8000/eu/countries').then(r => {
+    axios.get('/api/eu/countries').then(r => {
       const countries = r.data
       setCountries(countries)
     })
