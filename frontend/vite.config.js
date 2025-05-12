@@ -6,10 +6,19 @@ export default defineConfig({
   plugins: [react()],
   css: {
     preprocessorOptions: {
-        scss: {
-            api: 'modern-compiler', // or "modern"
-            silenceDeprecations: ['mixed-decls', 'color-functions', 'global-builtin', 'import']
-        }
+      scss: {
+        api: 'modern-compiler', // or "modern"
+        silenceDeprecations: ['mixed-decls', 'color-functions', 'global-builtin', 'import']
+      }
     },
-  }
+  },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8000',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+  },
 })
