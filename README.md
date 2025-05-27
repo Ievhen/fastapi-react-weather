@@ -45,6 +45,13 @@ docker build -t weather-backend:latest .
 docker run -p 8000:8000 weather-backend:latest
 ```
 
+#### Frontend
+```bash
+cd frontend
+docker build -t weather-frontend:latest .
+docker run -p 5173:80 weather-frontend:latest
+```
+
 ### 3. Running with Docker Compose 🐙
 
 ```bash
