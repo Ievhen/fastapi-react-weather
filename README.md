@@ -1,14 +1,15 @@
 # 🌦️ Weather
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
 
-Simple Full-Stack application to showing weather accross EU countries.
+Simple Full-Stack application to showing weather accross EU countries. \
 The https://open-meteo.com API is used.
 
 ## 🛠️ Technologies Used
 
-- Backend: FastAPI
-- Frontend: React, Bootstrap
-- Docker / Docker Compose
+- Backend: **FastAPI**
+- Frontend: **React**, **Bootstrap**, **Nginx**
+- Reverse proxy: **Nginx**
+- Deployment: **Docker** / **Docker Compose**
 
 ## 🖥️ Running the Application
 
@@ -59,7 +60,7 @@ Access the UI at http://localhost:5173/
 ### 3. Running with Docker Compose 🐙
 
 ```bash
-docker compose run -d
+docker compose up -d
 ```
 Access the UI at http://localhost/ \
 Access the OpenAPI documentation at http://localhost/docs
