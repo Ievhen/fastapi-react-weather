@@ -29,12 +29,14 @@ pip install -r requirements.txt
 source .venv/bin/activate
 uvicorn src.main:app --reload
 ```
+Access the OpenAPI documentation at http://localhost:8000/docs
 
 #### Frontend
 ```bash
 cd frontend
 npm run dev
 ```
+Access the UI at http://localhost:5173/
 
 ### 2. Running with Docker 🐳
 
@@ -44,6 +46,7 @@ cd backend
 docker build -t weather-backend:latest .
 docker run -p 8000:8000 weather-backend:latest
 ```
+Access the OpenAPI documentation at http://localhost:8000/docs
 
 #### Frontend
 ```bash
@@ -51,9 +54,12 @@ cd frontend
 docker build -t weather-frontend:latest .
 docker run -p 5173:80 weather-frontend:latest
 ```
+Access the UI at http://localhost:5173/
 
 ### 3. Running with Docker Compose 🐙
 
 ```bash
 docker compose run -d
 ```
+Access the UI at http://localhost/ \
+Access the OpenAPI documentation at http://localhost/docs
