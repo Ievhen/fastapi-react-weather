@@ -41,7 +41,7 @@ npm run dev
 #### Backend
 ```bash
 cd backend
-docker build -t weather-backend:latest
+docker build -t weather-backend:latest .
 docker run -p 8000:8000 weather-backend:latest
 ```
 
