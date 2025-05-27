@@ -4,21 +4,21 @@ from src.init import meteo_clinet
 
 
 router = APIRouter(
-    prefix="/eu"
+    prefix="/api"
 )
 
 
-@router.get("/countries")
+@router.get("/eu/countries")
 async def get_eu_countries():
     return eu_countries
 
 
-@router.get("/countries/{alpha_code}")
+@router.get("/eu/countries/{alpha_code}")
 async def get_eu_country(alpha_code: str):
     return find_country(alpha_code)
 
 
-@router.get("/countries/{alpha_code}/weather")
+@router.get("/eu/countries/{alpha_code}/weather")
 async def get_eu_country_weather(alpha_code: str):
     country = find_country(alpha_code)
     weather = await meteo_clinet.get_current_weather(
