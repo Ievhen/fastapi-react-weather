@@ -1,25 +1,30 @@
-import axios from "axios";
 import WeatherCard from "./components/WeatherCard"
 import Sidebar from "./components/Sidebar"
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+import { fetchCountries, fetchWeather } from "./api"
 
 function App() {
-  const [countries, setCountries] = useState([])
-  const [selectedCountry, setSelectedCountry] = useState(null)
+  const [countries, setCountries] = useState([]);
+  const [weatherCardData, setWeatherCardData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const fetchCountries = () => {
-    axios.get('/api/eu/countries').then(r => {
-      const countries = r.data
-      setCountries(countries)
-    })
-  }
-
-  const changeCountry = (country) => {
-    setSelectedCountry(country)
-  }
+  const changeCountry = useCallback(async (country) => {
+    setIsLoading(true)
+    try {
+      const weather = await fetchWeather(country.alpha_code);
+      setWeatherCardData({country, weather});
+    } finally {
+      setIsLoading(false)
+    }
+  }, []);
 
   useEffect(() => {
-    fetchCountries()
+    const loadCountries = async () => {
+      const countries = await fetchCountries();
+      setCountries(countries);
+    }
+
+    loadCountries()
   }, []);
 
   return (
@@ -27,10 +32,12 @@ function App() {
       <Sidebar
         title='EU Countries'
         items={countries}
-        onItemClick={(e) => changeCountry(e)}
+        onItemClick={changeCountry}
       />
       <div className="content d-flex flex-grow-1 justify-content-center align-items-center">
-        <WeatherCard country={selectedCountry} />
+        {!isLoading && weatherCardData && <WeatherCard data={weatherCardData}/>}
+        {!isLoading && !weatherCardData && <div>Select a country to show the weather</div>}
+        {isLoading && <div>Loading...</div>}
       </div>
     </div>
   )
