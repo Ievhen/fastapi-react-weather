@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: weather-nginx
+  name: weather-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: weather-nginx
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: weather-nginx
+    spec:
+      containers:
+      - image: docker.io/gipocode/weather-nginx:latest
+        name: weather-nginx
+        ports:
+        - containerPort: 80
+        resources: {}
+status: {}

@@ -3,6 +3,7 @@ services:
     build:
       dockerfile: ./Dockerfile
       context: ./backend/
+    image: gipocode/weather-backend:latest
     container_name: backend
     expose:
       - 8000
@@ -11,6 +12,7 @@ services:
     build:
       dockerfile: ./Dockerfile
       context: ./frontend/
+    image: gipocode/weather-frontend:latest
     container_name: frontend
     expose:
       - 80
@@ -19,6 +21,7 @@ services:
     build:
       dockerfile: ./Dockerfile
       context: ./nginx/
+    image: gipocode/weather-nginx:latest
     container_name: nginx
     ports:
       - "80:80"

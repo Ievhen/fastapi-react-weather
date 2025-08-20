@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: weather-backend
+  name: weather-backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: weather-backend
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: weather-backend
+    spec:
+      containers:
+      - image: docker.io/gipocode/weather-backend:latest
+        name: weather-backend
+        ports:
+        - containerPort: 8000
+        resources: {}
+status: {}
