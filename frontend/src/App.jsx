@@ -30,7 +30,7 @@ function App() {
   return (
     <div className="d-flex flex-grow-1">
       <Sidebar
-        title='EU Countries'
+        title='EU Country Weather'
         items={countries}
         onItemClick={changeCountry}
       />
