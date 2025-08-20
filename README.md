@@ -6,19 +6,20 @@ The https://open-meteo.com API is used.
 
 ## 🛠️ Technologies Used
 
-- Backend: **FastAPI**
+- Backend: **FastAPI**, **Uvicorn**
 - Frontend: **React**, **Bootstrap**, **Nginx**
 - Reverse proxy: **Nginx**
-- Deployment: **Docker** / **Docker Compose**
+- Deployment: **Docker** / **Docker Compose** / **Kubernetes**
 
 ## 🖥️ Running the Application
 
 ### Modes of Running
-You can run the application in **three different ways**:
+You can run the application in **4 different ways**:
 
 1. [Locally from CLI](#1-running-from-cli-🐍⚛️)
 2. [Using Docker (separate backend/frontend)](#2-running-with-docker-🐳)
 3. [Using Docker Compose (full stack)](#3-running-with-docker-compose-🐙)
+4. [Using Kubernetes](#3-running-with-kubernetes-☸️)
 
 ### 1. Running from CLI 🐍⚛️
 
@@ -64,3 +65,6 @@ docker compose up -d
 ```
 Access the UI at http://localhost/ \
 Access the OpenAPI documentation at http://localhost/docs
+
+### 4. Running with Kubernetes ☸️
+Refer to the dedicated [instructions](k8s/README.md) for Kubernetes.
